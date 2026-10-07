@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Huellas del Valle · Agenda tu cita</title>
+<meta name="description" content="Sistema de agendamiento de citas de la Clínica Veterinaria Huellas del Valle S.A.S., Cali. Consulta general, vacunación, baño y ecografía para perros y gatos.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='%230f766e'%3E%3Cellipse cx='15' cy='22' rx='7' ry='9'/%3E%3Cellipse cx='28' cy='13.5' rx='7' ry='9.5'/%3E%3Cellipse cx='43' cy='13.5' rx='7' ry='9.5'/%3E%3Cellipse cx='56' cy='22' rx='7' ry='9'/%3E%3Cpath d='M35.5 28c10.2 0 18.5 7.6 18.5 16.8 0 7-5.6 12.2-12.7 12.2-2.6 0-4.1-.8-5.8-.8s-3.2.8-5.8.8C22.6 57 17 51.8 17 44.8 17 35.6 25.3 28 35.5 28z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="salto" href="#contenido">Saltar al contenido</a>
+
+<!-- Huella reutilizable: 4 dedos + almohadilla -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="huella" viewBox="0 0 64 64">
+    <ellipse cx="15" cy="22" rx="7" ry="9"></ellipse>
+    <ellipse cx="28" cy="13.5" rx="7" ry="9.5"></ellipse>
+    <ellipse cx="43" cy="13.5" rx="7" ry="9.5"></ellipse>
+    <ellipse cx="56" cy="22" rx="7" ry="9"></ellipse>
+    <path d="M35.5 28c10.2 0 18.5 7.6 18.5 16.8 0 7-5.6 12.2-12.7 12.2-2.6 0-4.1-.8-5.8-.8s-3.2.8-5.8.8C22.6 57 17 51.8 17 44.8 17 35.6 25.3 28 35.5 28z"></path>
+  </symbol>
+</svg>
+
+<header class="cabecera">
+  <div class="contenedor cabecera-fila">
+    <a class="marca" href="#agendar">
+      <svg class="marca-logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#huella"></use></svg>
+      <span class="marca-texto">
+        <strong>Huellas del Valle</strong>
+        <small>Clínica Veterinaria S.A.S. · Cali</small>
+      </span>
+    </a>
+    <nav class="pestanas" aria-label="Secciones del sistema">
+      <div class="pestanas-lista" role="tablist">
+        <a class="pestana" id="tab-agendar" href="#agendar" role="tab" aria-selected="true" aria-controls="panel-agendar">Agendar cita</a>
+        <a class="pestana" id="tab-agenda" href="#agenda" role="tab" aria-selected="false" aria-controls="panel-agenda">Agenda del día</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="contenedor" id="contenido">
+
+  <section class="hero" id="hero">
+    <svg class="hero-huellas" viewBox="0 0 400 180" aria-hidden="true" focusable="false">
+      <use href="#huella" x="10" y="20" width="54" height="54"></use>
+      <use href="#huella" x="80" y="100" width="40" height="40"></use>
+      <use href="#huella" x="300" y="14" width="46" height="46"></use>
+      <use href="#huella" x="348" y="106" width="34" height="34"></use>
+    </svg>
+    <p class="hero-rotulo">Sistema de agendamiento</p>
+    <h1 class="hero-titulo">Agenda la cita de tu peludo <em>en segundos</em></h1>
+    <p class="hero-bajada">Atendemos perros y gatos con consulta general, vacunación, baño y ecografía. Al enviar la solicitud, el proceso revisa el cupo de la franja y te responde de inmediato.</p>
+  </section>
+
+  <!-- ===================== Vista 1 · Agendar cita ===================== -->
+  <section class="panel" id="panel-agendar" role="tabpanel" aria-labelledby="tab-agendar" tabindex="0">
+    <div class="columnas">
+
+      <div class="columna">
+        <article class="tarjeta">
+          <h2 class="tarjeta-titulo">Datos de la cita</h2>
+          <p class="tarjeta-nota">Los campos marcados con <abbr title="obligatorio">*</abbr> son obligatorios.</p>
+
+          <form id="form-cita" novalidate>
+            <div class="campo">
+              <label for="propietario">Nombre del propietario <abbr title="obligatorio">*</abbr></label>
+              <input type="text" id="propietario" name="propietario" autocomplete="name" placeholder="Ana Gómez" aria-describedby="err-propietario">
+              <p class="campo-error" id="err-propietario" role="alert"></p>
+            </div>
+
+            <div class="campo">
+              <label for="correo">Correo electrónico <abbr title="obligatorio">*</abbr></label>
+              <input type="email" id="correo" name="correo" autocomplete="email" placeholder="ana@correo.com" aria-describedby="err-correo">
+              <p class="campo-error" id="err-correo" role="alert"></p>
+            </div>
+
+            <div class="campo">
+              <label for="mascota">Nombre de la mascota <abbr title="obligatorio">*</abbr></label>
+              <input type="text" id="mascota" name="mascota" placeholder="Luna" aria-describedby="err-mascota">
+              <p class="campo-error" id="err-mascota" role="alert"></p>
+            </div>
+
+            <fieldset class="campo campo-grupo" aria-describedby="err-especie">
+              <legend>Especie <abbr title="obligatorio">*</abbr></legend>
+              <div class="chips">
+                <label class="chip">
+                  <input type="radio" name="especie" value="perro" class="sr-only">
+                  <span class="chip-cuerpo"><span class="chip-icono" aria-hidden="true">&#128054;</span>Perro</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="especie" value="gato" class="sr-only">
+                  <span class="chip-cuerpo"><span class="chip-icono" aria-hidden="true">&#128049;</span>Gato</span>
+                </label>
+              </div>
+              <p class="campo-error" id="err-especie" role="alert"></p>
+            </fieldset>
+
+            <fieldset class="campo campo-grupo" aria-describedby="err-servicio">
+              <legend>Servicio <abbr title="obligatorio">*</abbr></legend>
+              <div class="servicios">
+                <label class="servicio">
+                  <input type="radio" name="servicio" value="Consulta general" class="sr-only">
+                  <span class="servicio-cuerpo">
+                    <span class="servicio-icono" aria-hidden="true">&#129657;</span>
+                    <span class="servicio-nombre">Consulta general</span>
+                    <span class="servicio-detalle">Revisión y diagnóstico</span>
+                  </span>
+                </label>
+                <label class="servicio">
+                  <input type="radio" name="servicio" value="Vacunación" class="sr-only">
+                  <span class="servicio-cuerpo">
+                    <span class="servicio-icono" aria-hidden="true">&#128137;</span>
+                    <span class="servicio-nombre">Vacunación</span>
+                    <span class="servicio-detalle">Esquema y refuerzos</span>
+                  </span>
+                </label>
+                <label class="servicio">
+                  <input type="radio" name="servicio" value="Baño" class="sr-only">
+                  <span class="servicio-cuerpo">
+                    <span class="servicio-icono" aria-hidden="true">&#128704;</span>
+                    <span class="servicio-nombre">Baño</span>
+                    <span class="servicio-detalle">Aseo y secado</span>
+                  </span>
+                </label>
+                <label class="servicio">
+                  <input type="radio" name="servicio" value="Ecografía" class="sr-only">
+                  <span class="servicio-cuerpo">
+                    <span class="servicio-icono" aria-hidden="true">&#128248;</span>
+                    <span class="servicio-nombre">Ecografía</span>
+                    <span class="servicio-detalle">Imagen diagnóstica</span>
+                  </span>
+                </label>
+              </div>
+              <p class="campo-error" id="err-servicio" role="alert"></p>
+            </fieldset>
+
+            <div class="campo-fila">
+              <div class="campo">
+                <label for="fecha">Fecha <abbr title="obligatorio">*</abbr></label>
+                <input type="date" id="fecha" name="fecha" aria-describedby="err-fecha">
+                <p class="campo-error" id="err-fecha" role="alert"></p>
+              </div>
+              <div class="campo">
+                <label for="hora">Hora <abbr title="obligatorio">*</abbr></label>
+                <select id="hora" name="hora" aria-describedby="err-hora"></select>
+                <p class="campo-error" id="err-hora" role="alert"></p>
+              </div>
+            </div>
+
+            <p class="franja-previa">Franja que se enviará al proceso: <code id="franja-previa">&#8212;</code></p>
+
+            <button type="submit" class="boton boton-primario boton-ancho" id="btn-enviar">
+              <span class="spinner" aria-hidden="true"></span>
+              <span class="boton-texto">Agendar cita</span>
+            </button>
+          </form>
+        </article>
+      </div>
+
+      <div class="columna">
+        <output class="resultado" id="resultado" aria-live="polite"></output>
+
+        <article class="tarjeta">
+          <h2 class="tarjeta-titulo">Casos de prueba</h2>
+          <p class="tarjeta-nota">Cada botón solo llena el formulario. El envío lo haces tú con <strong>Agendar cita</strong>, para que el caso quede ejecutado desde la interfaz.</p>
+          <div class="campo">
+            <label for="correo-casos">Correo para los casos</label>
+            <input type="email" id="correo-casos" placeholder="tu@correo.com">
+            <p class="campo-ayuda">Se recuerda mientras la página esté abierta, así no lo reescribes en cada caso.</p>
+          </div>
+          <ul class="casos" id="casos"></ul>
+        </article>
+
+        <article class="tarjeta">
+          <div class="tarjeta-cabeza">
+            <h2 class="tarjeta-titulo">Traza de envíos</h2>
+            <button type="button" class="boton boton-sutil" id="btn-limpiar-traza">Limpiar</button>
+          </div>
+          <p class="tarjeta-nota">Registro en memoria de esta sesión. Sirve para las capturas del informe.</p>
+          <ol class="traza" id="traza"></ol>
+          <p class="vacio" id="traza-vacia">Todavía no has enviado ninguna solicitud.</p>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== Vista 2 · Agenda del día ===================== -->
+  <section class="panel" id="panel-agenda" role="tabpanel" aria-labelledby="tab-agenda" tabindex="0" hidden>
+    <div class="panel-intro">
+      <h1 class="panel-titulo">Agenda del día</h1>
+      <p class="panel-bajada">Cupos y citas leídos en vivo de la misma hoja que alimenta el proceso.</p>
+    </div>
+
+    <article class="tarjeta">
+      <div class="agenda-barra">
+        <div class="campo">
+          <label for="agenda-fecha">Fecha a consultar</label>
+          <input type="date" id="agenda-fecha" value="2026-10-14">
+        </div>
+        <button type="button" class="boton boton-primario" id="btn-actualizar">
+          <span class="spinner" aria-hidden="true"></span>
+          <span class="boton-texto">Actualizar</span>
+        </button>
+      </div>
+      <p class="tarjeta-nota">Los datos se leen directamente de la Google Sheet que usa el proceso, sin gastar operaciones de Make.</p>
+    </article>
+
+    <div class="aviso" id="agenda-aviso" role="status" hidden></div>
+
+    <div id="agenda-contenido">
+      <h2 class="seccion-titulo">Indicadores del día</h2>
+      <ul class="kpis" id="kpis"></ul>
+
+      <h2 class="seccion-titulo">Franjas y cupos</h2>
+      <div class="franjas" id="franjas"></div>
+      <p class="vacio" id="franjas-vacio" hidden>No hay franjas configuradas para esta fecha en la hoja <code>agenda</code>.</p>
+
+      <h2 class="seccion-titulo">Citas</h2>
+      <div class="tabla-envoltura">
+        <table class="tabla" id="tabla-citas">
+          <caption class="sr-only">Citas registradas en la fecha seleccionada, ordenadas por hora</caption>
+          <thead>
+            <tr>
+              <th scope="col">Hora</th>
+              <th scope="col">Mascota</th>
+              <th scope="col">Propietario</th>
+              <th scope="col">Servicio</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Solicitada</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo-citas"></tbody>
+        </table>
+      </div>
+      <p class="vacio" id="citas-vacio" hidden>No hay citas para esta fecha.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <p>Clínica Veterinaria Huellas del Valle S.A.S. · Cali, Colombia</p>
+    <p class="pie-nota">Sistema de información propio · Parcial de BPM y automatización</p>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
